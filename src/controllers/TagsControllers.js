@@ -1,3 +1,4 @@
+
 const knex = require("../database/knex");
 
 class TagsControllers {
@@ -6,6 +7,7 @@ class TagsControllers {
 
     const tags = await knex("tags")
     .where({ user_id })
+    .groupBy("name")
 
     return response.json(tags);
   }
